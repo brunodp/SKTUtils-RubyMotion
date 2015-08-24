@@ -8,7 +8,7 @@ Sprite Kit has a handy feature named *actions* that make it really easy to move,
 
 It lets you do things like this with just a few lines of code:
 
-![The demo app](Examples/Effects/Demo.gif)
+![The demo app](demo_app/Demo.gif)
 
 This code was originally written for the book [iOS Games by Tutorials](http://raywenderlich.com/store/ios-games-by-tutorials), which is published through [raywenderlich.com](http://raywenderlich.com).
 

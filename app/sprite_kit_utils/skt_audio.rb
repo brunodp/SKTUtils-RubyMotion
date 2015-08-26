@@ -31,7 +31,7 @@ module SKT
 	
 		def initialize
 			begin
-				Object.const_get('AVFoundation').is_a? Class
+				Object.const_get('AVAudioPlayer').is_a? Class
 			rescue NameError
 				puts 'You need to include AVFoundation Framework'
 				raise
@@ -47,7 +47,7 @@ module SKT
 			end
 		
 			error_ptr = Pointer.new(:object)
-			@background_music_player = AVAudioPlayer.alloc.initWithContentsOfURL(url, error_ptr)
+			@background_music_player = AVAudioPlayer.alloc.initWithContentsOfURL(url, error: error_ptr)
 			if @background_music_player.nil?
 				NSLog('Could not create audio player: %@', error_ptr[0])
 				return
@@ -59,11 +59,11 @@ module SKT
 		end
 	
 		def pauseBackgroundMusic
-			@background_music_player.pause if @background_music_player.playing
+			@background_music_player.pause if @background_music_player.isPlaying
 		end
 	
 		def resumeBackgroundMusic
-			@background_music_player.play if not @background_music_player.playing
+			@background_music_player.play if not @background_music_player.isPlaying
 		end
 	
 		def playSoundEffect(filename)
